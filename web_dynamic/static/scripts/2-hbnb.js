@@ -1,3 +1,11 @@
+/**
+ * A JavaScript script (static/scripts/2-hbnb.js):
+ *  executed only when DOM is loaded
+ *
+ * Author: Bradley Dillion Gilden And Lebohang KevCare Mokobane
+ * Date: 04-11-2023
+ */
+
 $(document).ready(() => {
   const amenityId = {};
   $('li input[type=checkbox]').change(function () {
