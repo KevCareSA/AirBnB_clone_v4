@@ -1,3 +1,10 @@
+/**
+ * A JavaScript script (static/scripts/4-hbnb.js):
+ * based on 3-hbnb.js
+ *
+ * Author: Bradley Dillion Gilden And Lebohang KevCare Mokobane
+ * Date: 04-11-2023
+ */
 function placesCards (data) {
   $('section.places').empty();
   $('section.places').append(data.map(place => {
@@ -8,13 +15,13 @@ function placesCards (data) {
     </div>
     <div class="information">
     <div class="max_guest">${place.max_guest} Guest${
-          place.max_guest !== 1 ? "s" : ""
+          place.max_guest !== 1 ? 's' : ''
         }</div>
     <div class="number_rooms">${place.number_rooms} Bedroom${
-          place.number_rooms !== 1 ? "s" : ""
+          place.number_rooms !== 1 ? 's' : ''
         }</div>
     <div class="number_bathrooms">${place.number_bathrooms} Bathroom${
-          place.number_bathrooms !== 1 ? "s" : ""
+          place.number_bathrooms !== 1 ? 's' : ''
         }</div>
     </div> 
     <div class="description">
@@ -45,20 +52,20 @@ $(document).ready(() => {
   });
 
   $.post({
-		url: `${HOST}/api/v1/places_search`,
-		data: JSON.stringify({}),
-		headers: {"Content-Type": "application/json"},
-		success: placesCards,
-		dataType: "json",
-	});
+    url: `${HOST}/api/v1/places_search`,
+    data: JSON.stringify({}),
+    headers: { 'Content-Type': 'application/json' },
+    success: placesCards,
+    dataType: 'json'
+  });
 
   $('button').click(() => {
     $.post({
       url: `${HOST}/api/v1/places_search`,
-      data: JSON.stringify({'amenities': Object.values(amenityId)}),
-      headers: {"Content-Type": "application/json"},
+      data: JSON.stringify({ amenities: Object.values(amenityId) }),
+      headers: { 'Content-Type': 'application/json' },
       success: placesCards,
-      dataType: "json",
+      dataType: 'json'
     });
-  })
+  });
 });
